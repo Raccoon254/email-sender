@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import { USER_EMAIL, USER_PASSWORD } from '$env/static/private';
 
-let transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
   secure: false,
@@ -11,12 +11,20 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('Server is ready to take messages');
-  }
-});
+export async function sendEmail(to, subject, html) {
+  const mailOptions = {
+    from: USER_EMAIL,
+    to,
+    subject,
+    html
+  };
 
-export default transporter;
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
+    return { success: true, message: 'Email sent successfully' };
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return { success: false, message: 'Failed to send email' };
+  }
+}
