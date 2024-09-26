@@ -32,7 +32,7 @@
       </div>
       <div class="text-left col-span-2">
         <p class="mb-4">
-          Hi, I'm Ken Tom, the developer behind Status Saver. With a passion for creating
+          Hi, I'm Ken Tom, the developer behind TestFlight Hub. With a passion for creating
           intuitive and user-friendly mobile applications, I strive to enhance the way
           people interact with technology in their daily lives.
         </p>
