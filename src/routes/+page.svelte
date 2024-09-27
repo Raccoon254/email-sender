@@ -8,8 +8,7 @@
   function handleSubmit(event) {
     result = null;
   }
-
-  let year = new Date().getFullYear();
+  
 </script>
 
 <div class="text-white">
